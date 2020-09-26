@@ -17,10 +17,7 @@
 default: &default
   adapter: <%= ENV['DB_ADAPTER'] || 'postgresql' %>
   encoding: unicode
-  host: <%= ENV['DB_HOST'] || 'localhost' %>
-  port: <%= ENV['DB_PORT'] || '5432'  %>
-  username: <%= ENV['DB_USER'] || 'postgres' %>
-  password: <%= ENV['DB_PASSWORD'] || 'postgres' %>
+  url: <%= ENV['DATABASE_URL'] %>
   pool: 5
 
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
