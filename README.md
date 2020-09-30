@@ -7,8 +7,12 @@ Todo:
 
 - [ ] Setup the React app
 - [ ] Add test suite(s)
-- [ ] Add automated test runner (Guard)
+  - [x] RSpec
+  - [ ] React suite (?)
+- [x] Add automated test runner (Guard)
 - [ ] Dockerize all the apps & runner
+  - [x] Rails app
+  - [ ] React app
 - [ ] Document all the things
 
 Rails version: 6.x
