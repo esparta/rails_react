@@ -37,6 +37,14 @@ services:
     <<: *backend
     command: /bin/bash
 
+  guard:
+    <<: *backend
+    command: bundle exec guard
+    environment:
+      - RAILS_ENV=${RAILS_ENV:-test}
+      - DATABASE_URL=${DATABASE_URL}
+      - DB_HOST=postgres
+
   rails:
     <<: *backend
     command: bundle exec rails server -b 0.0.0.0
