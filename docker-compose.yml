@@ -1,6 +1,30 @@
 version: '3.0'
 
 services:
+  js: &js
+    build:
+      context: .
+      dockerfile: ./.dockerdev/React.Dockerfile
+      args:
+        NODE_VERSION: '14.11.0'
+    image: react_app:0.0.1
+    tmpfs:
+      - /tmp
+
+  react: &react
+    <<: *js
+    tty: true
+    volumes:
+      - ./client:/app:cached
+      - node_modules:/app/node_modules
+    command: /bin/bash
+
+  frontend:
+    <<: *react
+    ports:
+      - '3001:3000'
+    command: yarn start --verbose
+
   app: &app
     build:
       context: .
@@ -67,3 +91,4 @@ volumes:
   postgres:
   bundle:
   rails_cache:
+  node_modules:

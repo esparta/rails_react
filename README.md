@@ -5,14 +5,14 @@ React application.
 
 Todo:
 
-- [ ] Setup the React app
+- [x] Setup the React app
 - [ ] Add test suite(s)
   - [x] RSpec
   - [ ] React suite (?)
 - [x] Add automated test runner (Guard)
 - [ ] Dockerize all the apps & runner
   - [x] Rails app
-  - [ ] React app
+  - [x] React app
 - [ ] Document all the things
 
 Rails version: 6.x
@@ -29,10 +29,29 @@ require docker-compose:
 
     $ docker-compose build
     $ docker-compose run runner ./bin/setup
+    $ docker-compose run react yarn install
 
 Commands
 ---
 
-There's a few commands you can run, as executing the rails app:
+There's a few commands you can run:
 
-    $ docker-compose run rails
+1.- Executing rails app (API)
+
+    $ docker-compose up rails
+
+2.- Executing the react app (FrontEnd)
+
+    $ docker-compose up frontend
+
+Or perhaps execute both:
+
+    $ docker-compose up frontend rails
+
+3.- Run guard for API testing
+
+    $ docker-compose run guard
+
+4.- Rails console
+
+    $ docker-compose run runner rails console
